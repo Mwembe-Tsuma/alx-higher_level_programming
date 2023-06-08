@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 
-from calculator_1 import add, sub, mul, div
+if __name__ == "__main__":
 
-a = 10
-b = 5
+    from calculator_1 import add, sub, mul, div
 
-res = add(a, b)
-diff = sub(a, b)
-mul1 = mul(a, b)
-dev1 = div(a, b)
+    a = 10
+    b = 5
 
-print("{} + {} = {}".format(a, b, res))
-print("{} - {} = {}".format(a, b, diff))
-print("{} * {} = {}".format(a, b, mul1))
-print("{} / {} = {}".format(a, b, div1))
+    res = add(a, b)
+    diff = sub(a, b)
+    mul1 = mul(a, b)
+    div1 = div(a, b)
+
+    print("{} + {} = {}".format(a, b, res))
+    print("{} - {} = {}".format(a, b, diff))
+    print("{} * {} = {}".format(a, b, mul1))
+    print("{} / {} = {}".format(a, b, div1))
