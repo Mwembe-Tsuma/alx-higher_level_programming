@@ -15,7 +15,7 @@ void print_python_list_info(PyObject *p)
 	printf("[*] Size of the python List = %d\n", size);
 	printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 
-	for (j = 0; j < size; j++)
+	for (j = 0; j < siz; j++)
 	{
 		printf("Element %d:", j);
 		obj1 = PyList_GetItem(p, j);
