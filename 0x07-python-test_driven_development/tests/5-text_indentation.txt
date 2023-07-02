@@ -1,0 +1,56 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("Hello_There?")
+Hello_There?
+<BLANKLINE>
+
+>>> text_indentation("   Hello there.")
+Hello there.
+<BLANKLINE>
+
+>>> text_indentation("          ")
+
+>>> text_indentation("Hellooo.   ")
+Hellooo.
+<BLANKLINE>
+
+>>> text_indentation("    Ooh no.    This is messy.   ")
+Ooh no.
+<BLANKLINE>
+This is messy.
+<BLANKLINE>
+
+>>> text_indentation("No ending period, that is bad")
+No ending period, that is bad
+
+>>> text_indentation("Let's print a new_line! Here goes the new line:\nPrinted.")
+Let's print a new_line! Here goes the new line:
+<BLANKLINE>
+<BLANKLINE>
+Printed.
+<BLANKLINE>
+
+>>> text_indentation("\n\n\n Printed three new lines.")
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+Printed three new lines.
+<BLANKLINE>
+
+>>> text_indentation("Another new line\n New line.")
+Another new line
+New line.
+<BLANKLINE>
+
+Invalid Text String
+
+>>> text_indentation(5)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation({"two": 2, "for": 4})
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
