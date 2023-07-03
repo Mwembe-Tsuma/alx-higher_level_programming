@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Solves the N-queens puzzle."""
 
-import sys
 
+import sys
 
 def init_chessboard(n):
     """Initialize a chessboard with 0's."""
@@ -11,13 +11,11 @@ def init_chessboard(n):
     [row.append(' ') for x in range(n) for row in board]
     return (board)
 
-
 def board_copy(board):
     """Return a copy of a chessboard."""
     if isinstance(board, list):
         return list(map(board_copy, board))
     return (board)
-
 
 def solve(board):
     """Return list of lists rep of a solved chessboard."""
@@ -28,7 +26,6 @@ def solve(board):
                 solution.append([rows, cols])
                 break
     return (solution)
-
 
 def print_out(board, row, col):
     """Print X out spots on a chessboard.
@@ -70,7 +67,6 @@ def print_out(board, row, col):
             break
         board[rows][cols] = "x"
         cols -= 1
-
 
 def recursive_solution(board, row, queens, solutions):
     """Recursively solve an N-queens puzzle.
