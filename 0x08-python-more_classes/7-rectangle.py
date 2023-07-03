@@ -3,11 +3,8 @@
 
 
 class Rectangle:
-    """Rep a Rectangle.
+    """Rep a Rectangle."""
 
-    Attributes:
-    number_of_instances (int): The number of Rect instances.
-    print_symbol (any symbol): The symbol used for string rep."""
 
     number_of_instances = 0
     print_symbol = "#"
