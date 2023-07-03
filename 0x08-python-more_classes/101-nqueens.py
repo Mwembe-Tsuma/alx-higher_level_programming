@@ -25,13 +25,13 @@ def nqueens(N):
         """
         for x in range(row):
             if board[x] == col:
-                return False
+                return (False)
 
         x = row - 1
         y = col - 1
         while x >= 0 and y >= 0:
             if board[x] == y:
-                return False
+                return (False)
             x -= 1
             y -= 1
 
@@ -39,16 +39,16 @@ def nqueens(N):
         y = col + 1
         while x >= 0 and y < N:
             if board[x] == y:
-                return False
+                return (False)
             x -= 1
             y += 1
 
-        return True
+        return (True)
 
     def get_solution(board, row):
         """Return list of lists rep of a solved chessboard"""
         if row == N:
-            print_board(board)
+            copy_board(board)
             return
 
         for col in range(N):
