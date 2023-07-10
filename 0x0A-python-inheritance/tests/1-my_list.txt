@@ -19,6 +19,7 @@ Testfor 1-my_list.py
 
 Not defined
 
+>>>MyList = __import__('1-my_list').MyList
 >>> my_list2.print_sorted()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -73,6 +74,7 @@ AttributeError: 'list' object has no attribute 'print_sorted'
 
 Negative Numbers
 
+>>> MyList = __import__('1-my_list').MyList
 >>> my_list = MyList()
 >>> my_list.append(4)
 >>> my_list.append(3)
@@ -81,3 +83,4 @@ Negative Numbers
 >>> my_list.append(-3)
 >>> my_list.print_sorted()
 [-4, -3, 3, 4, 8]
+>>>
