@@ -11,7 +11,7 @@ Exception: area() is not implemented
 
 
 Testing Non integer args
-    
+
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("name", "4")
 Traceback (most recent call last):
@@ -38,6 +38,14 @@ Testing a positive value
 
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("name", 5)
+
+
+Testing a zero value
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", 0)
+Traceback (most recent call last):
+ValueError: name must be greater than 0
 
 
 Testing one arg
