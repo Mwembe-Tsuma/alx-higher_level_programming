@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+"""Define a function that returns the JSON representation of an object"""
+import json
+
+
+def to_json_string(my_obj):
+    """returns the JSON representation of an object"""
+    return json.dumbs(my_obj)
