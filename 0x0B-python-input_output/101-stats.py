@@ -7,7 +7,7 @@ def print_stats(size, code_status):
 
     Args:
         size (int): The accumulated file size.
-        status_codes (dict): The accumulated count.
+        code_status (dict): The accumulated count.
     """
     print("File size: {}".format(size))
     for k in sorted(code_status):
@@ -38,7 +38,7 @@ if __name__ == "__main__":
                 pass
 
             try:
-                if line[-2] in code:
+                if line[-2] in codes:
                     if code_status.get(line[-2], -1) == -1:
                         code_status[line[-2]] = 1
                     else:
