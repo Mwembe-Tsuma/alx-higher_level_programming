@@ -50,7 +50,7 @@ class TestBase_instantiation(unittest.TestCase):
             print(Base(14).__nb_instances)
 
     def test_string_id(self):
-        self.assertEqual("Hello", Base("Hello").id)
+        self.assertEqual("hello", Base("hello").id)
 
     def test_floats_id(self):
         self.assertEqual(5.7, Base(5.7).id)
@@ -88,19 +88,19 @@ class TestBase_to_json_string(unittest.TestCase):
 
     def test_to_json_string_rect_type(self):
         rect = Rectangle(10, 8, 7, 2, 6)
-        self.assertEqual(str, type(Base.to_json_string([r.to_dictionary()])))
+        self.assertEqual(str, type(Base.to_json_string([rect.to_dictionary()])))
 
     def test_to_json_string_rectangle_one_dictionary(self):
         rect = Rectangle(10, 8, 7, 2, 6)
-        self.assertTrue(len(Base.to_json_string([r.to_dictionary()])) == 53)
+        self.assertTrue(len(Base.to_json_string([rect.to_dictionary()])) == 53)
 
     def test_to_json_string_square_type(self):
         sqr = Square(10, 2, 7, 8)
-        self.assertEqual(str, type(Base.to_json_string([s.to_dictionary()])))
+        self.assertEqual(str, type(Base.to_json_string([sqr.to_dictionary()])))
 
     def test_to_json_string_square_one_dictionary(self):
         sqr = Square(10, 2, 7, 8)
-        self.assertTrue(len(Base.to_json_string([s.to_dictionary()])) == 39)
+        self.assertTrue(len(Base.to_json_string([sqr.to_dictionary()])) == 39)
 
     def test_to_json_string_empty_list(self):
         self.assertEqual("[]", Base.to_json_string([]))
@@ -112,7 +112,7 @@ class TestBase_to_json_string(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.to_json_string([], 1)
 
-    def test_to_json_string_no_args(self):
+    def test_to_json_string_no_arg(self):
         with self.assertRaises(TypeError):
             Base.to_json_string()
 
@@ -165,12 +165,12 @@ class TestBase_save_to_file(unittest.TestCase):
     def test_save_to_file_cls_name_for_filename(self):
         sqr = Square(10, 8, 2, 7)
         Base.save_to_file([sqr])
-        with open("Base.json", "r") as f:
-            self.assertTrue(len(f.read()) == 39)
+        with open("Base.json", "r") as fd:
+            self.assertTrue(len(fd.read()) == 39)
 
     def test_save_to_file_overwrite(self):
         sqr = Square(9, 2, 2, 39)
-        Square.save_to_file([s])
+        Square.save_to_file([sqr])
         sqr = Square(10, 8, 2, 7)
         Square.save_to_file([sqr])
         with open("Square.json", "r") as fd:
@@ -279,7 +279,7 @@ class TestBase_create(unittest.TestCase):
 
     def test_create_sqr_equals(self):
         sqr1 = Square(3, 5, 1, 7)
-        sqr1_dictionary = s1.to_dictionary()
+        sqr1_dictionary = sqr1.to_dictionary()
         sqr2 = Square.create(**sqr1_dictionary)
         self.assertNotEqual(sqr1, sqr2)
 
