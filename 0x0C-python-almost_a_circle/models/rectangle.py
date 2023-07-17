@@ -130,7 +130,6 @@ class Rectangle(Base):
 
     def __str__(self):
         """String method."""
-        st = "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
-        return st
