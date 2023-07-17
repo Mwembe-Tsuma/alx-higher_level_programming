@@ -274,7 +274,7 @@ class TestBase_create(unittest.TestCase):
     def test_create_sqr_is(self):
         sqr1 = Square(3, 5, 1, 7)
         sqr1_dictionary = sqr1.to_dictionary()
-        s2 = Square.create(**sqr1_dictionary)
+        sqr2 = Square.create(**sqr1_dictionary)
         self.assertIsNot(sqr1, sqr2)
 
     def test_create_sqr_equals(self):
