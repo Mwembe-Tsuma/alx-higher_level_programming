@@ -28,7 +28,7 @@ class Base:
             self.id = Base.__nb_objects
 
     @staticmethod
-    def into_json_string(list_dict):
+    def to_json_string(list_dict):
         """JSON serialization of a list of dictionaries.
 
         Args:
@@ -39,7 +39,7 @@ class Base:
         return json.dumps(list_dict)
 
     @classmethod
-    def save_into_file(cls, list_objs):
+    def save_to_file(cls, list_objs):
         """Write JSON serialization of a list of objs to file.
 
         Args:
@@ -51,18 +51,18 @@ class Base:
                 jsonfile.write("[]")
             else:
                 list_dicts = [o.to_dictionary() for ob in list_objs]
-                jsonfile.write(Base.into_json_string(list_dicts))
+                jsonfile.write(Base.to_json_string(list_dicts))
 
     @staticmethod
-    def load_json_string(json_strings):
+    def from_json_string(json_string):
         """Deserialization of a JSON string.
 
         Args:
             json_strings (str): JSON str rep of a list of dictionaries.
         """
-        if json_strings is None or json_strings == "[]":
+        if json_string is None or json_string == "[]":
             return []
-        return json.loads(json_strings)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
@@ -80,18 +80,18 @@ class Base:
             return new_cls
 
     @classmethod
-    def loads_from_file(cls):
+    def load_from_file(cls):
         """Returns list of classes created from a file of JSON strings."""
         filename = str(cls.__name__) + ".json"
         try:
             with open(filename, "r") as jsonf:
-                list_dicts = Base.load_json_string(jsonf.read())
+                list_dicts = Base.from_json_string(jsonf.read())
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
 
     @classmethod
-    def save_to_csvfile(cls, list_objs):
+    def save_to_file_csv(cls, list_objs):
         """Write the CSV serialization of a list of objs to file.
 
         Args:
@@ -111,7 +111,7 @@ class Base:
                     writer.writerow(objs.to_dictionary())
 
     @classmethod
-    def load_from_csvfile(cls):
+    def load_from_file_csv(cls):
         """Returns a list of classes created from a CSV file."""
         filename = cls.__name__ + ".csv"
         try:
