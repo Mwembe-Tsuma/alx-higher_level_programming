@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
 """Defines Base Class."""
-import turtle
+import os.path
 import json
 import csv
 
 
 class Base:
-    """Rep of a Base Class model.
+    """Base Class model.
 
     Attributes:
         __nb_object (int): No of instantiated Bases.
@@ -73,9 +73,9 @@ class Base:
         """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
-                new_cls = cls(1, 1)
+                new_cls = cls(10, 10)
             else:
-                new_cls = cls(1)
+                new_cls = cls(10)
             new_cls.update(**dictionary)
             return new_cls
 
@@ -126,44 +126,3 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
-
-    @staticmethod
-    def draws(list_rectangles, list_squares):
-        """Draws Rectangles and Squares using turtle module.
-
-        Args:
-            list_rectangles (list):list of Rectangle objs to make.
-            list_squares (list):list of Square objs to make.
-        """
-        tur = turtle.Turtle()
-        tur.screen.bgcolor("#b7312c")
-        tur.pensize(3)
-        tur.shape("turtle")
-
-        tur.color("#ffffff")
-        for rec in list_rectangles:
-            tur.showturtle()
-            tur.up()
-            tur.goto(rec.x, rec.y)
-            tur.down()
-            for idx in range(2):
-                tur.forward(rec.width)
-                tur.left(90)
-                tur.forward(rec.height)
-                tur.left(90)
-            tur.hideturtle()
-
-        tur.color("#b5e3d8")
-        for sqr in list_squares:
-            tur.showturtle()
-            tur.up()
-            tur.goto(sqr.x, sqr.y)
-            tur.down()
-            for idx in range(2):
-                tur.forward(sqr.width)
-                tur.left(90)
-                tur.forward(sqr.height)
-                tur.left(90)
-            tur.hideturtle()
-
-        turtle.exitonclick()
