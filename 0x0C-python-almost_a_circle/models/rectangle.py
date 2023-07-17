@@ -131,4 +131,4 @@ class Rectangle(Base):
     def __str__(self):
         """String method."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format
-	    (self.id, self.x, self.y, self.width, self.height)
+        (self.id, self.x, self.y, self.width, self.height)
