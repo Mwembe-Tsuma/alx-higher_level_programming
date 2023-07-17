@@ -354,7 +354,7 @@ class TestSquare_stdout(unittest.TestCase):
     def test_string_method_size_x_and__y(self):
         sqr = Square(7, 4, 22)
         correct = "[Square] ({}) 4/22 - 7".format(sqr.id)
-        self.assertEqual(correct, str(s))
+        self.assertEqual(correct, str(sqr))
 
     def test_string_method_size_x_and_y_id(self):
         sqr = Square(2, 88, 4, 19)
@@ -625,7 +625,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
     def test_to_dict_no_obj_change(self):
         sqr1 = Square(10, 2, 1, 2)
         sqr2 = Square(1, 2, 10)
-        sqr2.update(**s1.to_dictionary())
+        sqr2.update(**sqr1.to_dictionary())
         self.assertNotEqual(sqr1, sqr2)
 
     def test_to_dict_arg(self):
