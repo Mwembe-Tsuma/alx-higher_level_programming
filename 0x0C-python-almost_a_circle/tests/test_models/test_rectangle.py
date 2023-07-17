@@ -419,8 +419,8 @@ class TestRectangle_area(unittest.TestCase):
         self.assertEqual(20, rect.area())
 
     def test_large_area(self):
-        rect = Rectangle(9999999999999, 999999999999999, 0, 0, 1)
-        self.assertEqual(99999999999999990000000000001, rect.area())
+        rect = Rectangle(999999999999999, 999999999999999999, 0, 0, 1)
+        self.assertEqual(999999999999998999000000000000001, rect.area())
 
     def test_area_changed_attr(self):
         rect = Rectangle(2, 10, 1, 1, 1)
@@ -499,8 +499,8 @@ class TestRectangle_stdout(unittest.TestCase):
         self.assertEqual(display, capture.getvalue())
 
     def test_display_width_and_height_x_y(self):
-        rec = Rectangle(2, 4, 3, 2, 0)
-        capture = TestRectangle_stdout.capture_stdout(r, "display")
+        rect = Rectangle(2, 4, 3, 2, 0)
+        capture = TestRectangle_stdout.capture_stdout(rect, "display")
         display = "\n\n   ##\n   ##\n   ##\n   ##\n"
         self.assertEqual(display, capture.getvalue())
 
@@ -691,7 +691,7 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         rect = Rectangle(10, 10, 10, 10, 10)
         rect.update(id=89, x=1, height=2)
         rect.update(y=3, height=15, width=2)
-        self.assertEqual("[Rectangle] (89) 1/3 - 2/15", str(r))
+        self.assertEqual("[Rectangle] (89) 1/3 - 2/15", str(rect))
 
     def test_update_kwarg_invalid_width_type(self):
         rect = Rectangle(10, 10, 10, 10, 10)
