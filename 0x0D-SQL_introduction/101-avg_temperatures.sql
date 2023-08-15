@@ -1,4 +1,4 @@
 -- script that displays the average temperature
 
-SELECT city AVG(value) AS avg_temp FROM temparatures
+SELECT city, AVG(value) AS avg_temp FROM temperatures
 GROUP BY city ORDER BY avg_temp DESC;
