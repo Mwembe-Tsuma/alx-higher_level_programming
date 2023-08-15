@@ -1,4 +1,3 @@
--- a script that prints the full description of the table first_table
+-- a script that prints the full description.
 
-USE hbtn_0c_0;
-DESC first_table;
+SHOW CREATE TABLE first_table;
