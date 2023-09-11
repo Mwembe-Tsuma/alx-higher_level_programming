@@ -5,9 +5,7 @@ if (isNaN(process.argv[2]) || process.argv[2] === undefined) {
 } else {
   const count = Number(process.argv[2]);
 
-  let i = 0;
-  while (i < count) {
-    console.log('X'.repeat(x));
-    i++;
+  for (let i = 0; i < count; i++) {
+    console.log('X'.repeat(count));
   }
 }
