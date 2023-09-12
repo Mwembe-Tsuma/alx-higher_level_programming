@@ -7,7 +7,6 @@ class Square extends New_Square {
     if (c === undefined) {
       c = 'X';
     }
-
     for (let rows = 0; rows < this.height; rows++) {
       let x = '';
       for (let cols = 0; cols < this.width; cols++) {
