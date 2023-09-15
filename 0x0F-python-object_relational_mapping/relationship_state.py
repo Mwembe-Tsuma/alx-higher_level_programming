@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from sqlalchemy import Column, Integer, String, text
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
 """
@@ -17,4 +17,8 @@ class State(Base):
     id = Column(Integer, nullable=False, primary_key=True,
                 autoincrement=True, unique=True)
     name = Column(String(128), nullable=False)
-    cities = relationship("City", backref="state", cascade="all, delete")
+    ities = relationship(
+        "City",
+        cascade="all, delete-orphan",
+        backref=backref("state", cascade="all"),
+        single_parent=True)
