@@ -1,4 +1,4 @@
-!/usr/bin/python3
+#!/usr/bin/python3
 """
 Python file that contains class State and an instance
 """
