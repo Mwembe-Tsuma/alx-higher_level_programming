@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+"""Module that creates States class."""
+
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
-"""Module that creates States class."""
 
 Base = declarative_base()
 
