@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-from sqlalchemy import Column, Integer, String, ForeignKey
-from relationship_state import Base
 """Module that creates a States class."""
 
+from sqlalchemy import Column, Integer, String, ForeignKey
+from relationship_state import Base
 
 class City(Base):
     """Class representing the states table"""
