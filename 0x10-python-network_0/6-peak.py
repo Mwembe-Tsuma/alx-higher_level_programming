@@ -2,18 +2,28 @@
 
 
 def find_peak(list_of_integers):
-    if not list_of_integers:
+
+    if list_of_integers is None or len(list_of_integers) == 0:
         return None
 
-    if list_of_integers[0] >= list_of_integers[1]:
+    if len(list_of_integers) == 1:
         return list_of_integers[0]
 
-    if list_of_integers[-1] >= list_of_integers[-2]:
-        return list_of_integers[-1]
+    idx = int(len(list_of_integers) / 2)
 
-    for idx in range(1, len(list_of_integers) - 1):
-        if list_of_integers[idx] >= list_of_integers[idx - 1] and\
-              list_of_integers[idx] >= list_of_integers[idx + 1]:
+    if idx != len(list_of_integers) - 1:
+        if list_of_integers[idx - 1] < list_of_integers[idx] and\
+           list_of_integers[idx + 1] < list_of_integers[idx]:
             return list_of_integers[idx]
+    else:
+        if list_of_integers[idx - 1] < list_of_integers[idx]:
+            return list_of_integers[idx]
+        else:
+            return list_of_integers[idx - 1]
 
-    return None
+    if list_of_integers[idx - 1] > list_of_integers[idx]:
+        peak_list = list_of_integers[0:idx]
+    else:
+        peak_list = list_of_integers[idx + 1:]
+
+    return find_peak(peak_list)
