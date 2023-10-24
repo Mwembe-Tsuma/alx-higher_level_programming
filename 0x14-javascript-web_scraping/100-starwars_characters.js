@@ -12,7 +12,7 @@ request(url, (error, response, body) => {
   } else {
     try {
       const movieData = JSON.parse(body);
-      /*console.log(`Characters in ${movieData.title}:`);*/
+      /* console.log(`Characters in ${movieData.title}:`); */
       movieData.characters.forEach((characterUrl) => {
         request(characterUrl, (charError, charResponse, charBody) => {
           if (charError) {
