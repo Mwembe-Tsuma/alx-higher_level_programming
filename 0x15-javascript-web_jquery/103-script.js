@@ -6,7 +6,7 @@ $(document).ready(function () {
       type: 'GET',
       url: 'https://fourtonfish.com/hellosalut/?lang=' + len,
       success: function (data) {
-        $('DIV#hello').append(data.hello);
+        $('#hello').append(data.hello);
       }
     });
   }
